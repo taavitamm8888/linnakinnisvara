@@ -40,6 +40,8 @@ export const Pages: CollectionConfig = {
     slug: true,
   },
   admin: {
+    hidden: true, // template kollektsioon, praegu kasutuseta - peidetud kliendi eest
+
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>

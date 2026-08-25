@@ -68,6 +68,7 @@ export interface Config {
   blocks: {};
   collections: {
     folders: Folder;
+    artiklid: Artiklid;
     objektid: Objektid;
     paringud: Paringud;
     pages: Page;
@@ -93,6 +94,7 @@ export interface Config {
   };
   collectionsSelect: {
     folders: FoldersSelect<false> | FoldersSelect<true>;
+    artiklid: ArtiklidSelect<false> | ArtiklidSelect<true>;
     objektid: ObjektidSelect<false> | ObjektidSelect<true>;
     paringud: ParingudSelect<false> | ParingudSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
@@ -195,34 +197,43 @@ export interface FolderInterface {
   createdAt: string;
 }
 /**
+ * Turuülevaated ja nõuanded — kuvatakse lehel /blog
+ *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "objektid".
+ * via the `definition` "artiklid".
  */
-export interface Objektid {
+export interface Artiklid {
   id: number;
   pealkiri: string;
+  kategooria: 'turuulevaated' | 'nouanded';
+  kuupaev: string;
   /**
-   * Nt "Kesklinn, Tartu" või "Viimsi, Harjumaa"
+   * Kuvatakse blogi nimekirjas ja artikli päises
    */
-  asukoht: string;
+  kaanepilt?: (number | null) | Media;
   /**
-   * Kuvatakse objektide nimekirjas kaardil
+   * Lühikokkuvõte, kuvatakse blogi nimekirja kaardil
    */
-  thumbnail: number | Media;
+  tutvustus: string;
   /**
-   * Kõik objekti pildid, kuvatakse objekti detailvaates
+   * Artikli sisutekst. Pealkirjad, loetelud ja lingid redaktorist.
    */
-  pildid?: (number | Media)[] | null;
-  kirjeldus: string;
-  /**
-   * Nt "185 000 €" või "Hind kokkuleppel". Võib tühjaks jätta.
-   */
-  hind?: string | null;
-  staatus?: ('muugis' | 'broneeritud' | 'muudud') | null;
-  /**
-   * Väiksem number kuvatakse eespool
-   */
-  jarjekord?: number | null;
+  sisu?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  legacyHtml?: string | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -319,6 +330,40 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "objektid".
+ */
+export interface Objektid {
+  id: number;
+  pealkiri: string;
+  /**
+   * Nt "Kesklinn, Tartu" või "Viimsi, Harjumaa"
+   */
+  asukoht: string;
+  /**
+   * Kuvatakse objektide nimekirjas kaardil
+   */
+  thumbnail: number | Media;
+  /**
+   * Kõik objekti pildid, kuvatakse objekti detailvaates
+   */
+  pildid?: (number | Media)[] | null;
+  kirjeldus: string;
+  /**
+   * Nt "185 000 €" või "Hind kokkuleppel". Võib tühjaks jätta.
+   */
+  hind?: string | null;
+  staatus?: ('muugis' | 'broneeritud' | 'muudud') | null;
+  /**
+   * Väiksem number kuvatakse eespool
+   */
+  jarjekord?: number | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * Kodulehe kontaktivormi kaudu laekunud päringud
@@ -1024,6 +1069,10 @@ export interface PayloadLockedDocument {
         value: number | Folder;
       } | null)
     | ({
+        relationTo: 'artiklid';
+        value: number | Artiklid;
+      } | null)
+    | ({
         relationTo: 'objektid';
         value: number | Objektid;
       } | null)
@@ -1120,6 +1169,23 @@ export interface PayloadMigration {
 export interface FoldersSelect<T extends boolean = true> {
   name?: T;
   folder?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artiklid_select".
+ */
+export interface ArtiklidSelect<T extends boolean = true> {
+  pealkiri?: T;
+  kategooria?: T;
+  kuupaev?: T;
+  kaanepilt?: T;
+  tutvustus?: T;
+  sisu?: T;
+  legacyHtml?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }

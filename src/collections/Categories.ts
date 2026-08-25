@@ -13,6 +13,8 @@ export const Categories: CollectionConfig = {
     update: authenticated,
   },
   admin: {
+    hidden: true, // template kollektsioon, praegu kasutuseta - peidetud kliendi eest
+
     useAsTitle: 'title',
   },
   fields: [

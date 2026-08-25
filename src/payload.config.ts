@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
+import { Artiklid } from './collections/Artiklid'
 import { Objektid } from './collections/Objektid'
 import { Paringud } from './collections/Paringud'
 import { Pages } from './collections/Pages'
@@ -87,6 +88,7 @@ export default buildConfig({
         },
       ],
     },
+    Artiklid,
     Objektid,
     Paringud,
     Pages,

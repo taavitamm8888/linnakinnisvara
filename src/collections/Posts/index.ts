@@ -51,6 +51,8 @@ export const Posts: CollectionConfig = {
     },
   },
   admin: {
+    hidden: true, // template kollektsioon, praegu kasutuseta - peidetud kliendi eest
+
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>
