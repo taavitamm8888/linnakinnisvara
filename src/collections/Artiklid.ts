@@ -1,4 +1,17 @@
 import type { CollectionConfig } from 'payload'
+import {
+  BoldFeature,
+  FixedToolbarFeature,
+  HeadingFeature,
+  InlineToolbarFeature,
+  ItalicFeature,
+  LinkFeature,
+  OrderedListFeature,
+  ParagraphFeature,
+  UnderlineFeature,
+  UnorderedListFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
@@ -70,6 +83,20 @@ export const Artiklid: CollectionConfig = {
       name: 'sisu',
       type: 'richText',
       label: 'Sisu',
+      editor: lexicalEditor({
+        features: [
+          ParagraphFeature(),
+          HeadingFeature({ enabledHeadingSizes: ['h2', 'h3'] }),
+          BoldFeature(),
+          ItalicFeature(),
+          UnderlineFeature(),
+          UnorderedListFeature(),
+          OrderedListFeature(),
+          LinkFeature(),
+          FixedToolbarFeature(),
+          InlineToolbarFeature(),
+        ],
+      }),
       admin: {
         description: 'Artikli sisutekst. Pealkirjad, loetelud ja lingid redaktorist.',
         condition: (data) => !data?.legacyHtml,
