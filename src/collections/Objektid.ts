@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { slugField } from '../fields/slug'
 
 /* Kliendi hallatavad kinnisvaraobjektid. Väljad Marti briefi järgi:
    asukoht, thumbnail, pealkiri, kirjeldus. */
@@ -40,7 +41,16 @@ export const Objektid: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       required: true,
-      label: 'Pilt',
+      label: 'Kaanepilt',
+      admin: { description: 'Kuvatakse objektide nimekirjas kaardil' },
+    },
+    {
+      name: 'pildid',
+      type: 'upload',
+      relationTo: 'media',
+      hasMany: true,
+      label: 'Galerii pildid',
+      admin: { description: 'Kõik objekti pildid, kuvatakse objekti detailvaates' },
     },
     {
       name: 'kirjeldus',
@@ -74,5 +84,6 @@ export const Objektid: CollectionConfig = {
         description: 'Väiksem number kuvatakse eespool',
       },
     },
+    ...slugField('pealkiri'),
   ],
 }

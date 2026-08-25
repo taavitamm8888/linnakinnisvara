@@ -53,7 +53,7 @@ export default async function ObjektidPage() {
               {objektid.map((o) => {
                 const pilt = o.thumbnail as Media
                 return (
-                  <article className="objekt-kaart" key={o.id}>
+                  <a className="objekt-kaart" href={`/objektid/${o.slug || o.id}`} key={o.id}>
                     <div className="objekt-pilt">
                       {pilt?.url && (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -70,8 +70,9 @@ export default async function ObjektidPage() {
                       <h2 className="objekt-pealkiri">{o.pealkiri}</h2>
                       <p className="objekt-kirjeldus">{o.kirjeldus}</p>
                       {o.hind && <div className="objekt-hind">{o.hind}</div>}
+                      <span className="objekt-vaata">Vaata lähemalt →</span>
                     </div>
-                  </article>
+                  </a>
                 )
               })}
             </div>

@@ -203,7 +203,14 @@ export interface Objektid {
    * Nt "Kesklinn, Tartu" või "Viimsi, Harjumaa"
    */
   asukoht: string;
+  /**
+   * Kuvatakse objektide nimekirjas kaardil
+   */
   thumbnail: number | Media;
+  /**
+   * Kõik objekti pildid, kuvatakse objekti detailvaates
+   */
+  pildid?: (number | Media)[] | null;
   kirjeldus: string;
   /**
    * Nt "185 000 €" või "Hind kokkuleppel". Võib tühjaks jätta.
@@ -214,6 +221,8 @@ export interface Objektid {
    * Väiksem number kuvatakse eespool
    */
   jarjekord?: number | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1100,10 +1109,13 @@ export interface ObjektidSelect<T extends boolean = true> {
   pealkiri?: T;
   asukoht?: T;
   thumbnail?: T;
+  pildid?: T;
   kirjeldus?: T;
   hind?: T;
   staatus?: T;
   jarjekord?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }
