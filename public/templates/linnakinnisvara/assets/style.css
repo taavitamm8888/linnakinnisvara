@@ -102,15 +102,20 @@ a { color: inherit; }
 /* ---------- Hero (skyline) ---------- */
 .hero-skyline { position: relative; }
 .skyline-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 700px; z-index: 0; pointer-events: none; overflow: hidden; }
-/* Tartu linnavaade hero taustal (kliendi soov), sulandub sujuvalt heledasse tausta */
-.skyline-wrapper::before {
-    content: ''; position: absolute; inset: 0;
-    background: url('/assets/uploads/tartu-panoraam.jpg') center 62% / cover no-repeat;
-    opacity: 0.22;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 40%, #000 82%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, #000 40%, #000 82%, transparent 100%);
+/* Abstraktne siluett asendatud parls Tartu fotoga (.tartu-riba), svg peidus */
+.skyline-svg { display: none; }
+/* Tartu linnavaade selge taislaiuses fotoribana pealkirja all (kliendi soov);
+   kaardid tostetakse kergelt foto peale */
+.tartu-riba { position: relative; z-index: 1; }
+.tartu-riba img {
+    display: block; width: 100%; height: 440px;
+    object-fit: cover; object-position: center 42%;
 }
-.skyline-svg { width: 100%; height: 100%; }
+.two-doors-fork { margin-top: -150px; }
+@media (max-width: 640px) {
+    .tartu-riba img { height: 240px; }
+    .two-doors-fork { margin-top: -60px; }
+}
 .hero-header { position: relative; z-index: 2; padding: 8rem 0 4rem; text-align: center; }
 .hero-title { font-size: 4rem; font-weight: 800; color: var(--ink); margin-bottom: 1rem; letter-spacing: -1px; line-height: 1.05; }
 .hero-subtitle { font-size: 1.25rem; color: var(--ink-light); max-width: 600px; margin: 0 auto; }
