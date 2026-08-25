@@ -127,25 +127,25 @@
 
             var message = (teema ? 'Teema: ' + teema + '\n\n' : '') + sonum;
 
-            fetch('https://linnakinnisvara.ee/api/onboarding.php', {
+            fetch('/api/paringud', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                source:  'kontakt',
                 website: f['website'].value,
-                name:    nimi,
+                nimi:    nimi,
                 email:   email,
-                phone:   telefon,
-                message: message
+                telefon: telefon,
+                teema:   teema,
+                sonum:   sonum
               })
             }).then(function (r) { return r.json(); }).then(function (json) {
-              if (json.ok) {
+              if (json.doc) {
                 form.style.display = 'none';
                 okBox.textContent = "Aitäh päringu eest! Oleme teie andmed kätte saanud ja võtame peagi ühendust.";
                 okBox.style.display = '';
                 okBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
               } else {
-                errBox.textContent = json.error || 'Saatmine ebaõnnestus. Proovi uuesti.';
+                errBox.textContent = (json.errors && json.errors[0] && json.errors[0].message) || 'Saatmine ebaõnnestus. Proovi uuesti.';
                 errBox.style.display = '';
               }
             }).catch(function () {

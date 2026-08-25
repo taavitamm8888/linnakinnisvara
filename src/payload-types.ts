@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     folders: Folder;
     objektid: Objektid;
+    paringud: Paringud;
     pages: Page;
     posts: Post;
     media: Media;
@@ -93,6 +94,7 @@ export interface Config {
   collectionsSelect: {
     folders: FoldersSelect<false> | FoldersSelect<true>;
     objektid: ObjektidSelect<false> | ObjektidSelect<true>;
+    paringud: ParingudSelect<false> | ParingudSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
@@ -317,6 +319,22 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * Kodulehe kontaktivormi kaudu laekunud päringud
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "paringud".
+ */
+export interface Paringud {
+  id: number;
+  nimi: string;
+  email: string;
+  telefon: string;
+  teema?: string | null;
+  sonum: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1010,6 +1028,10 @@ export interface PayloadLockedDocument {
         value: number | Objektid;
       } | null)
     | ({
+        relationTo: 'paringud';
+        value: number | Paringud;
+      } | null)
+    | ({
         relationTo: 'pages';
         value: number | Page;
       } | null)
@@ -1116,6 +1138,19 @@ export interface ObjektidSelect<T extends boolean = true> {
   jarjekord?: T;
   slug?: T;
   slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "paringud_select".
+ */
+export interface ParingudSelect<T extends boolean = true> {
+  nimi?: T;
+  email?: T;
+  telefon?: T;
+  teema?: T;
+  sonum?: T;
   updatedAt?: T;
   createdAt?: T;
 }
