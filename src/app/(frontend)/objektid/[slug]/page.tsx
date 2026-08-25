@@ -52,7 +52,7 @@ export default async function ObjektPage({ params }: Args) {
 
   return (
     <main id="main-content">
-      <div dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
 
       <section className="objekt-detail">
         <div className="container">
@@ -106,7 +106,7 @@ export default async function ObjektPage({ params }: Args) {
         </div>
       </section>
 
-      <div dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
     </main>
   )
 }

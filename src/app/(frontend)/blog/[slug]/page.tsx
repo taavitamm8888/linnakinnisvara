@@ -39,7 +39,7 @@ export default async function ArtikkelPage({ params }: Args) {
 
   return (
     <main id="main-content">
-      <div dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
 
       <section className="blog-hero">
         <div className="container">
@@ -65,10 +65,10 @@ export default async function ArtikkelPage({ params }: Args) {
             <img alt={artikkel.pealkiri} src={pilt.url} />
           </div>
         )}
-        <div className="blog-post-body" dangerouslySetInnerHTML={{ __html: sisuHtml }} />
+        <div className="blog-post-body" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: sisuHtml }} />
       </div>
 
-      <div dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
     </main>
   )
 }

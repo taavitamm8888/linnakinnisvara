@@ -21,9 +21,9 @@ export default async function BlogPage() {
 
   return (
     <main id="main-content">
-      <div dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
       <BlogiNimekiri aktiivne={null} artiklid={result.docs as Artiklid[]} />
-      <div dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
     </main>
   )
 }

@@ -26,7 +26,7 @@ export default async function Page({ params }: Args) {
   const page = RAW_PAGES[routeOf(slug)]
   if (!page) return notFound()
 
-  return <div dangerouslySetInnerHTML={{ __html: page.html }} />
+  return <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: page.html }} />
 }
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {

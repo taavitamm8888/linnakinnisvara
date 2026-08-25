@@ -30,7 +30,7 @@ export default async function ObjektidPage() {
 
   return (
     <main id="main-content">
-      <div dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
 
       <section className="objektid-hero">
         <div className="container">
@@ -80,7 +80,7 @@ export default async function ObjektidPage() {
         </div>
       </section>
 
-      <div dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
     </main>
   )
 }
