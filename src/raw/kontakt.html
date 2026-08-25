@@ -1,0 +1,212 @@
+
+
+<main id="main-content">
+<section class="cms-block cms-block--navbar"><nav class="site-nav" id="site-nav">
+  <div class="container nav-container">
+    <a href="/" class="logo" aria-label="Linna Kinnisvara avaleht">
+              <span class="logo-text" >Linna Kinnisvara</span>
+          </a>
+
+    <button class="nav-toggle" type="button" aria-label="Ava menüü" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <div class="nav-links" id="nav-menu">
+              <a href="/muun-kinnisvara" class="">Müün kinnisvara</a>
+              <a href="/muume-maad" class="">Maade ost</a>
+              <a href="/blog/category/nouanded" class="">Nõuanded</a>
+              <a href="/blog" class="">Turuülevaated</a>
+              <a href="/objektid" class="">Objektid</a>
+              <a href="/meist" class="">Meist</a>
+                    <a href="/kontakt" class="nav-cta " >Kontakt</a>
+          </div>
+  </div>
+</nav>
+</section>
+<section class="cms-block cms-block--page-header"><section class="page-header">
+  <div class="container">
+        <h1 class="page-title" >Võtke meiega ühendust.</h1>
+          <p class="page-desc" >Oleme kättesaadavad nii Tartus kui Tallinnas. Helistage, kirjutage või saatke meile päring – vastame esimesel võimalusel.</p>
+      </div>
+</section>
+</section>
+<section class="cms-block cms-block--contact-form"><section class="contact-hero" id="kontakt-246">
+    <div class="overlay"></div>
+    <div class="container contact-hero-inner">
+    <div class="contact-card reveal" >
+      <div class="contact-card-head">
+        <h2 >Võtke ühendust</h2>
+                  <p >Täitke allolev vorm ning võtame teiega ühendust 24 tunni jooksul.</p>
+                <div class="contact-meta">
+          <p><strong>E-post:</strong> <a href="mailto:info@linnakinnisvara.ee" >info@linnakinnisvara.ee</a></p>          <p><strong>Telefon:</strong> <a href="tel:+3726660909" >+372 666 0909</a></p>          <p><strong>Aadress:</strong> <span >Teguri tn 37, 50107 Tartu</span></p>        </div>
+      </div>
+
+              <form class="contact-form" id="kontakt-246-form" novalidate>
+          <p style="position:absolute;left:-9999px" aria-hidden="true"><label>Ära täida<input type="text" name="website" tabindex="-1" autocomplete="off"></label></p>
+
+          <p class="form-msg ok" id="kontakt-246-ok" role="status" style="display:none"></p>
+          <p class="form-msg err" id="kontakt-246-err" role="alert" style="display:none"></p>
+
+          <div class="field">
+            <label for="kontakt-246-nimi">Nimi / Ettevõte <span aria-hidden="true">*</span></label>
+            <input type="text" id="kontakt-246-nimi" name="nimi" required>
+          </div>
+          <div class="field">
+            <label for="kontakt-246-email">E-post <span aria-hidden="true">*</span></label>
+            <input type="email" id="kontakt-246-email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="kontakt-246-telefon">Telefon <span aria-hidden="true">*</span></label>
+            <input type="tel" id="kontakt-246-telefon" name="telefon" required>
+          </div>
+                    <div class="field">
+            <label for="kontakt-246-teema">Teema</label>
+            <select id="kontakt-246-teema" name="teema">
+                              <option value="Soovin müüa kinnisvara" >Soovin müüa kinnisvara</option>
+                              <option value="Soovin pakkuda arendusmaad" >Soovin pakkuda arendusmaad</option>
+                              <option value="Müügivihje (vihjetasu 300–500 €)" >Müügivihje (vihjetasu 300–500 €)</option>
+                              <option value="Muu küsimus / konsultatsioon" >Muu küsimus / konsultatsioon</option>
+                          </select>
+          </div>
+                    <div class="field">
+            <label for="kontakt-246-sonum">Sõnum (või objekti aadress / link) <span aria-hidden="true">*</span></label>
+            <textarea id="kontakt-246-sonum" name="sonum" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-lg btn-dark">Saatke info</button>
+        </form>
+
+        <script>
+        (function () {
+          var form  = document.getElementById('kontakt-246-form');
+          var okBox = document.getElementById('kontakt-246-ok');
+          var errBox= document.getElementById('kontakt-246-err');
+          if (!form) return;
+          var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+          var phoneRe = /^\+?[0-9\s()-]{7,20}$/;
+
+          function fieldErr(input, msg) {
+            input.classList.add('input-error');
+            var holder = input.parentNode.querySelector('.field-error');
+            if (!holder) { holder = document.createElement('span'); holder.className = 'field-error'; input.parentNode.appendChild(holder); }
+            holder.textContent = msg;
+          }
+          form.querySelectorAll('input, textarea').forEach(function (el) {
+            el.addEventListener('input', function () {
+              el.classList.remove('input-error');
+              var h = el.parentNode.querySelector('.field-error');
+              if (h) h.textContent = '';
+            });
+          });
+
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            okBox.style.display = 'none';
+            errBox.style.display = 'none';
+            var f = form.elements;
+            var nimi = f['nimi'].value.trim();
+            var email = f['email'].value.trim();
+            var telefon = f['telefon'].value.trim();
+            var sonum = f['sonum'].value.trim();
+            var teema = f['teema'] ? f['teema'].value : '';
+            var first = null;
+
+            if (nimi.length < 2) { fieldErr(f['nimi'], 'Palun sisestage nimi (vähemalt 2 tähte).'); first = first || f['nimi']; }
+            if (!emailRe.test(email)) { fieldErr(f['email'], 'Palun sisestage korrektne e-posti aadress.'); first = first || f['email']; }
+            if (!phoneRe.test(telefon) || telefon.replace(/\D/g, '').length < 7) { fieldErr(f['telefon'], 'Palun sisestage kehtiv telefoninumber.'); first = first || f['telefon']; }
+            if (sonum.length < 5) { fieldErr(f['sonum'], 'Palun lisage lühike sõnum.'); first = first || f['sonum']; }
+
+            if (first) {
+              errBox.textContent = 'Päringut ei saadetud – palun parandage esiletõstetud väljad.';
+              errBox.style.display = '';
+              first.focus();
+              return;
+            }
+
+            var message = (teema ? 'Teema: ' + teema + '\n\n' : '') + sonum;
+
+            fetch('https://linnakinnisvara.ee/api/onboarding.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                source:  'kontakt',
+                website: f['website'].value,
+                name:    nimi,
+                email:   email,
+                phone:   telefon,
+                message: message
+              })
+            }).then(function (r) { return r.json(); }).then(function (json) {
+              if (json.ok) {
+                form.style.display = 'none';
+                okBox.textContent = "Aitäh päringu eest! Oleme teie andmed kätte saanud ja võtame peagi ühendust.";
+                okBox.style.display = '';
+                okBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              } else {
+                errBox.textContent = json.error || 'Saatmine ebaõnnestus. Proovi uuesti.';
+                errBox.style.display = '';
+              }
+            }).catch(function () {
+              errBox.textContent = 'Saatmine ebaõnnestus. Proovi uuesti.';
+              errBox.style.display = '';
+            });
+          });
+        })();
+        </script>
+          </div>
+  </div>
+</section>
+<style>#kontakt-246::before { background-image: url('/assets/uploads/contact-bg.jpg'); }</style>
+</section>
+<section class="cms-block cms-block--footer"><footer class="site-footer">
+  <div class="container footer-container">
+    <div class="f-brand">
+      <a href="/" class="logo">
+                  <span class="logo-text" >Linna Kinnisvara</span>
+              </a>
+              <p >Aitame müüa teie kinnisvara ja ostame arendusmaid. Kohalik kapital, professionaalne teenindus (EST 2006).</p>
+          </div>
+
+    <div class="f-links">
+      <div class="f-col">
+        <h4 >Teenused</h4>
+        <ul>
+                      <li><a href="/muun-kinnisvara">Müün kinnisvara</a></li>
+                      <li><a href="/muume-maad">Arendusmaade ost</a></li>
+                      <li><a href="/blog/category/nouanded">Nõuanded</a></li>
+                      <li><a href="/blog">Turuülevaated</a></li>
+                  </ul>
+      </div>
+
+      <div class="f-col">
+        <h4 >Ettevõte</h4>
+        <ul>
+                      <li><a href="/meist">Meist</a></li>
+                      <li><a href="/kontakt">Kontakt</a></li>
+                  </ul>
+      </div>
+
+      <div class="f-col">
+        <h4 >Kontakt</h4>
+        <ul class="f-contact">
+          <li><a href="mailto:info@linnakinnisvara.ee" >info@linnakinnisvara.ee</a></li>          <li><a href="tel:+3726660909" >+372 666 0909</a></li>          <li >Teguri tn 37, 50107 Tartu</li>                  </ul>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <div>&copy; 2006–2026 <span >Uuslinnakinnisvara OÜ</span> · Reg. <span >17079595</span>. Kõik õigused kaitstud.</div>
+      <a class="footer-credit" href="https://ideearendus.ee" target="_blank" rel="noopener">
+        <span class="footer-credit-name">Ideearendus</span>
+        <span class="footer-credit-sub">Kus ideed leiavad lahenduse</span>
+      </a>
+    </div>
+  </div>
+</footer>
+</section>
+</main>
+
+<script src="/templates/linnakinnisvara/assets/main.js"></script>
+
+

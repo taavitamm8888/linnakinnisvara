@@ -1,0 +1,87 @@
+{
+ "": {
+  "file": "home.html",
+  "title": "Linna Kinnisvara — kinnisvaramüük ja arendusmaade ost Tartus ja Tallinnas",
+  "description": "Linnakinnisvara aitab müüa teie kinnisvara Tartus ja Tallinnas ning ostab arenduseks sobivaid maid. Kohalik kapital ja professionaalne maaklerteenus."
+ },
+ "blog": {
+  "file": "blog.html",
+  "title": "Turuülevaated · Linna Kinnisvara",
+  "description": "Igakuised Tallinna ja Tartu kinnisvaraturu ülevaated – Linna Kinnisvara ekspertide originaalanalüüsid."
+ },
+ "blog/aprill-2026": {
+  "file": "blog__aprill-2026.html",
+  "title": "Kevade algus kinnisvaraturul – fookuses energiasäästlikud lahendused · Linna Kinnisvara",
+  "description": "Ostjate eelistused on liikunud selgelt energiatõhusate lahenduste suunas. A-energiaklassi majade ja korterite hinnad on teinud kerge tõusu, samas kui vanema kinnisvara osas kestab hinnaläbirääkimiste periood."
+ },
+ "blog/category/nouanded": {
+  "file": "blog__category__nouanded.html",
+  "title": "Nõuanded · Turuülevaated · Linna Kinnisvara",
+  "description": "Turuülevaated teemal Nõuanded – Linna Kinnisvara."
+ },
+ "blog/category/turuulevaated": {
+  "file": "blog__category__turuulevaated.html",
+  "title": "Turuülevaated · Turuülevaated · Linna Kinnisvara",
+  "description": "Turuülevaated teemal Turuülevaated – Linna Kinnisvara."
+ },
+ "blog/juuni-2026": {
+  "file": "blog__juuni-2026.html",
+  "title": "Tallinna ja Tartu kinnisvaraturg juunis 2026: stabiilne kasv ja uued arendused · Linna Kinnisvara",
+  "description": "Kevadkuudel alanud aktiivsus on kandunud üle suve algusesse. Tartus näeme tugevat huvi uute ridaelamute vastu, samas kui Tallinnas veab turgu Viimsi nõudlus uute kodude ja äripindade järele."
+ },
+ "blog/kuidas-kinnisvara-ise-ma-ja-millal-tasub-kaasata-maakler": {
+  "file": "blog__kuidas-kinnisvara-ise-ma-ja-millal-tasub-kaasata-maakler.html",
+  "title": "Kuidas kinnisvara ise müüa – ja millal tasub kaasata maakler · Linna Kinnisvara",
+  "description": "Oma kodu saab müüa ka ise, kui oled valmis panustama aega ja närvi. Vaatame, millised on iseseisva müügi sammud."
+ },
+ "blog/kuidas-panna-kinnisvara-mgiks-valmis": {
+  "file": "blog__kuidas-panna-kinnisvara-mgiks-valmis.html",
+  "title": "Kuidas panna kinnisvara müügiks valmis · Linna Kinnisvara",
+  "description": "Hästi ettevalmistatud kodu müüb kiiremini ja kallimalt. Mõned läbimõeldud sammud enne fotograafi ja esimest näitamist tasuvad end müügihinnas mitmekordselt ära."
+ },
+ "blog/kuidas-saada-oma-korteri-mgist-parim-hind": {
+  "file": "blog__kuidas-saada-oma-korteri-mgist-parim-hind.html",
+  "title": "Kuidas saada oma korteri müügist parim hind · Linna Kinnisvara",
+  "description": "Parim müügihind ei sünni juhusest, vaid ettevalmistusest. Õige hinnastamine ja läbirääkimisoskus võivad sama korteri väärtust muuta tuhandete eurode võrra."
+ },
+ "blog/mai-2026": {
+  "file": "blog__mai-2026.html",
+  "title": "Maikuu kinnisvaraturg: elavnemine elukondlikus sektoris · Linna Kinnisvara",
+  "description": "Mai tõi kaasa oodatud kevadise elavnemise. Uusarenduste müük näitas esimesi kindlaid taastumismärke ning maaomanike huvi arendusprojektide vastu tegi läbi tugeva kasvu."
+ },
+ "blog/muugitehingu-vormistamine": {
+  "file": "blog__muugitehingu-vormistamine.html",
+  "title": "Müügitehingu vormistamine: notar, leping ja omandi üleminek · Linna Kinnisvara",
+  "description": "Kinnisvara müük lõpeb notaribüroos. Selgitame, millised sammud viivad kokkuleppest omandi ülemineku ja kinnistusraamatu kandeni ning millised dokumendid selleks vaja on."
+ },
+ "blog/muuja-vastutus": {
+  "file": "blog__muuja-vastutus.html",
+  "title": "Müüja vastutus kinnisvara müümisel: mida peab teadma · Linna Kinnisvara",
+  "description": "Müügitehinguga ei lõpe müüja kohustused alati ukse sulgemisega. Puuduste avalikustamine ja vastutus varjatud vigade eest on teemad, mille teadmine hoiab sind hilisematest vaidlustest."
+ },
+ "blog/viis-levinud-viga-mida-esmamja-teeb": {
+  "file": "blog__viis-levinud-viga-mida-esmamja-teeb.html",
+  "title": "Viis levinud viga, mida esmamüüja teeb · Linna Kinnisvara",
+  "description": "Esimest korda kinnisvara müües on lihtne komistada. Toome välja viis kõige sagedasemat viga ja selle, kuidas neid vältida, et müük läheks sujuvalt ja tulemuslikult."
+ },
+ "kontakt": {
+  "file": "kontakt.html",
+  "title": "Kontakt — Linna Kinnisvara",
+  "description": "Võtke ühendust Linna Kinnisvaraga Tartus ja Tallinnas. Helistage, kirjutage või saatke päring – vastame esimesel võimalusel."
+ },
+ "meist": {
+  "file": "meist.html",
+  "title": "Meist — Linna Kinnisvara (asutatud 2006)",
+  "description": "Linnakinnisvara on alates 2006. aastast tegutsev kohalik partner, kes ühendab professionaalse maaklerteenuse ja võimekuse investeerida arendusprojektidesse."
+ },
+ "muume-maad": {
+  "file": "muume-maad.html",
+  "title": "Arendusmaade ost Viimsis, Tallinnas ja Tartus — Linna Kinnisvara",
+  "description": "Ostame arenduseks sobivaid krunte ja maid Viimsis, Tallinnas, Tartus ja lähiümbruses. Oma kapital ja investorite võrgustik tagavad kiire tehingu."
+ },
+ "muun-kinnisvara": {
+  "file": "muun-kinnisvara.html",
+  "title": "Kinnisvara müük Tartus ja Tallinnas — Linna Kinnisvara",
+  "description": "Aitame müüa korterit, maja, suvilat, krunti, maad ja äripindu Tartus ja Tallinnas. Kogenud maaklerid ja parima turuhinna tagav müügiprotsess."
+ }
+}
