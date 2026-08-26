@@ -1,18 +1,25 @@
-import Link from 'next/link'
 import React from 'react'
 
-import { Button } from '@/components/ui/button'
+import { FOOTER_HTML, NAV_HTML } from '@/raw/fragments.gen'
 
 export default function NotFound() {
   return (
-    <div className="container py-28">
-      <div className="prose max-w-none">
-        <h1 style={{ marginBottom: 0 }}>404</h1>
-        <p className="mb-4">This page could not be found.</p>
-      </div>
-      <Button asChild variant="default">
-        <Link href="/">Go home</Link>
-      </Button>
-    </div>
+    <main id="main-content">
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
+      <section className="objektid-hero" style={{ padding: '8rem 0 10rem' }}>
+        <div className="container">
+          <h1 className="hero-title">Lehte ei leitud</h1>
+          <p className="hero-subtitle">
+            Seda lehte ei ole olemas või on see ümber kolinud.
+          </p>
+          <p style={{ marginTop: '2.5rem' }}>
+            <a className="btn btn-primary" href="/">
+              Tagasi avalehele
+            </a>
+          </p>
+        </div>
+      </section>
+      <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: FOOTER_HTML }} />
+    </main>
   )
 }

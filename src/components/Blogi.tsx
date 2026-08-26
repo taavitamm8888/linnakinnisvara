@@ -24,13 +24,15 @@ export function kuupaevEt(iso?: string | null): string {
 
 export function BlogiKaart({ artikkel }: { artikkel: Artiklid }) {
   const pilt = artikkel.kaanepilt as Media | null
+  // nimekirjas piisab keskmisest variandist (900px), originaal on kordi raskem
+  const piltUrl = pilt?.sizes?.medium?.url || pilt?.url
   const href = `/blog/${artikkel.slug}`
   return (
     <article className="blog-card">
-      {pilt?.url && (
+      {piltUrl && (
         <a className="blog-card__img-link" href={href}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt={artikkel.pealkiri} loading="lazy" src={pilt.url} />
+          <img alt={artikkel.pealkiri} loading="lazy" src={piltUrl} />
         </a>
       )}
       <div className="blog-card__body">

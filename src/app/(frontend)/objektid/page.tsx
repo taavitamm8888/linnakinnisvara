@@ -52,12 +52,13 @@ export default async function ObjektidPage() {
             <div className="objektid-grid">
               {objektid.map((o) => {
                 const pilt = o.thumbnail as Media
+                const piltUrl = pilt?.sizes?.medium?.url || pilt?.url
                 return (
                   <a className="objekt-kaart" href={`/objektid/${o.slug || o.id}`} key={o.id}>
                     <div className="objekt-pilt">
-                      {pilt?.url && (
+                      {piltUrl && (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img alt={pilt.alt || o.pealkiri} src={pilt.url} loading="lazy" />
+                        <img alt={pilt?.alt || o.pealkiri} src={piltUrl} loading="lazy" />
                       )}
                       {o.staatus && o.staatus !== 'muugis' && (
                         <span className={`objekt-staatus objekt-staatus--${o.staatus}`}>

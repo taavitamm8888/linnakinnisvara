@@ -79,13 +79,13 @@ export default async function ObjektPage({ params }: Args) {
             <div className="objekt-galerii">
               <div className="objekt-galerii-suur">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt={esimene.alt || objekt.pealkiri} src={esimene.url || ''} />
+                <img alt={esimene.alt || objekt.pealkiri} src={esimene.sizes?.large?.url || esimene.url || ''} />
               </div>
               {ylejaanud.length > 0 && (
                 <div className="objekt-galerii-grid">
                   {ylejaanud.map((p) => (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img alt={p.alt || objekt.pealkiri} key={p.id} src={p.url || ''} loading="lazy" />
+                    <img alt={p.alt || objekt.pealkiri} key={p.id} src={p.sizes?.large?.url || p.url || ''} loading="lazy" />
                   ))}
                 </div>
               )}

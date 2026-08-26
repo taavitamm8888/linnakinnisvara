@@ -31,6 +31,7 @@ export default async function ArtikkelPage({ params }: Args) {
   if (!artikkel) return notFound()
 
   const pilt = artikkel.kaanepilt as Media | null
+  const piltUrl = pilt?.sizes?.large?.url || pilt?.url
   const sisuHtml = artikkel.legacyHtml
     ? artikkel.legacyHtml
     : artikkel.sisu
@@ -59,10 +60,10 @@ export default async function ArtikkelPage({ params }: Args) {
       </section>
 
       <div className="container blog-post-wrap">
-        {pilt?.url && (
+        {piltUrl && (
           <div className="blog-post-cover">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img alt={artikkel.pealkiri} src={pilt.url} />
+            <img alt={artikkel.pealkiri} src={piltUrl} />
           </div>
         )}
         <div className="blog-post-body" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: sisuHtml }} />
