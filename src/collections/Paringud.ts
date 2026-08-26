@@ -37,23 +37,29 @@ export const Paringud: CollectionConfig = {
     afterChange: [
       async ({ doc, operation, req }) => {
         if (operation !== 'create') return doc
-        // E-posti teavitus: töötab kohe, kui payload.config-i on lisatud
-        // email adapter (SMTP nt Zone postkastiga). Ilma adapterita logib
-        // Payload kirja konsooli ja päring salvestub ikkagi adminisse.
+        // E-posti teavitus käib läbi Netlify Formsi silla (tasuta, SMTP-d pole vaja):
+        // edastame päringu serveripoolselt registreeritud vormi, Netlify saadab
+        // e-kirja teavituse (konksud skoobitud form_name järgi Netlify halduses).
         try {
-          await req.payload.sendEmail({
-            to: process.env.PARINGU_TEAVITUS_EMAIL || 'info@linnakinnisvara.ee',
-            subject: `Uus päring kodulehelt: ${doc.nimi}`,
-            html: [
-              `<p><strong>Nimi:</strong> ${doc.nimi}</p>`,
-              `<p><strong>E-post:</strong> ${doc.email}</p>`,
-              `<p><strong>Telefon:</strong> ${doc.telefon}</p>`,
-              doc.teema ? `<p><strong>Teema:</strong> ${doc.teema}</p>` : '',
-              `<p><strong>Sõnum:</strong></p><p>${String(doc.sonum || '').replace(/\n/g, '<br>')}</p>`,
-            ].join(''),
+          const body = new URLSearchParams({
+            'form-name': 'linnakinnisvara-kontakt',
+            veeb: '',
+            nimi: doc.nimi || '',
+            email: doc.email || '',
+            telefon: doc.telefon || '',
+            teema: doc.teema || '',
+            sonum: doc.sonum || '',
           })
+          const res = await fetch(process.env.TEAVITUS_SILD_URL || 'https://metsahind.netlify.app/', {
+            body: body.toString(),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            method: 'POST',
+          })
+          if (!res.ok) {
+            req.payload.logger.error(`Päringu teavitussild vastas ${res.status}`)
+          }
         } catch (err) {
-          req.payload.logger.error(`Päringu e-kirja saatmine ebaõnnestus: ${err}`)
+          req.payload.logger.error(`Päringu teavituse saatmine ebaõnnestus: ${err}`)
         }
         return doc
       },
