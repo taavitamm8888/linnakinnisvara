@@ -1,0 +1,9 @@
+# Railway deploy seadistus
+# Volume on /data kylge: seal elavad SQLite andmebaas ja yleslaaditud pildid.
+# Symlink teeb public/media -> /data/media, et Payload ja Next tootaks muutmata kujul.
+[build]
+builder = "RAILPACK"
+
+[deploy]
+startCommand = "sh -c 'mkdir -p /data/media && rm -rf public/media && ln -sfn /data/media public/media && npx payload migrate && npm run start'"
+restartPolicyType = "ON_FAILURE"
