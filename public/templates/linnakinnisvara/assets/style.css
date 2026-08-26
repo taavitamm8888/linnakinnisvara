@@ -107,6 +107,11 @@ a { color: inherit; }
 /* Tartu linnavaade selge taislaiuses fotoribana pealkirja all (kliendi soov);
    kaardid tostetakse kergelt foto peale */
 .tartu-riba { position: relative; z-index: 1; }
+/* tekst ja foto tihedalt koos, ilma suure tyhja ribata */
+.hero-skyline .hero-header { padding: 6rem 0 2.5rem; }
+@media (max-width: 640px) {
+    .hero-skyline .hero-header { padding: 4rem 0 1.5rem; }
+}
 .tartu-riba img {
     display: block; width: 100%; height: 440px;
     object-fit: cover; object-position: center 42%;
