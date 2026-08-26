@@ -120,10 +120,10 @@ a { color: inherit; }
     display: block; width: 100%; height: 600px;
     object-fit: cover; object-position: center 55%;
 }
-.two-doors-fork { margin-top: -260px; }
+.two-doors-fork { margin-top: -330px; }
 @media (max-width: 640px) {
     .tartu-riba img { height: 460px; }
-    .two-doors-fork { margin-top: -150px; }
+    .two-doors-fork { margin-top: -190px; }
 }
 .hero-header { position: relative; z-index: 2; padding: 8rem 0 4rem; text-align: center; }
 .hero-title { font-size: 4rem; font-weight: 800; color: var(--ink); margin-bottom: 1rem; letter-spacing: -1px; line-height: 1.05; }
